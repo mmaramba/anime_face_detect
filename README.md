@@ -21,4 +21,5 @@ https://github.com/wulfebw/mergevec
 4. Train mergevec.py via OpenCV traincascade. I used a 48x48 model image size, LBP feature type, and 18 stages, along with default number of positives and negatives (2,000 and 1,000).  
 ````opencv_traincascade -data Classifiers -vec train_samples.vec -bg negatives.txt -numStages 18 -featureType LBP -w 48 -h 48````
 
-5. Use detect.py on an image.
+5. Use detect.py on an image. Example:  
+![](img_show_1.png)
