@@ -1,1 +1,5 @@
 Training/ignore
+Training/negatives/*.jpg
+Training/positives/*.jpg
+Training/samples/*.vec
+Training/show_img/*
