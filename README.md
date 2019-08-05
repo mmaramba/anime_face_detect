@@ -1,11 +1,14 @@
 # anime_face_detect
 
 ## Datasets used:
-- Positives: Anime Face Dataset (Mckinsey666) https://github.com/Mckinsey666/Anime-Face-Dataset
-- Negatives: Haar Training Negatives (sonots) https://github.com/sonots/tutorial-haartraining/tree/master/data/negatives
+- Positives: Anime Face Dataset (Mckinsey666)  
+https://github.com/Mckinsey666/Anime-Face-Dataset
+- Negatives: Haar Training Negatives (sonots)  
+https://github.com/sonots/tutorial-haartraining/tree/master/data/negatives
 
 ## Scripts used: 
-- Merging .vec files: mergevec.py (wulfebw) https://github.com/wulfebw/mergevec
+- Merging .vec files: mergevec.py (wulfebw)  
+https://github.com/wulfebw/mergevec
 
 ## Creation and training process
 1. Using your desired negatives training set, create an info file (ex. negatives.txt) of each negative image path, for example:  
