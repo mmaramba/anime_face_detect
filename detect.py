@@ -17,6 +17,5 @@ for (x,y,w,h) in faces:
     roi_gray = gray[y:y+h, x:x+w]
     roi_color = img[y:y+h, x:x+w]
 
-cv2.imshow('img',img)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+cv2.imwrite("img_show_1.png", img)
+
