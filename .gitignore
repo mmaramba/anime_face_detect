@@ -1,3 +1,3 @@
 Training/ignore
-*.vec
-*.jpg
+**/*.vec
+**/*.jpg
