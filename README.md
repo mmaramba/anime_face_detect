@@ -29,10 +29,18 @@ https://github.com/wulfebw/mergevec
 Returns image with bounding box given a base64-encoded string representation of image.
 
 Request body:  
-````{"content": "base64-encoded string here"}````
+  ```python
+     {
+         "content": "<base64-encoded string>"
+     }
+  ```
 
 Response body:  
-````{"image": "base64-encoded string here"}````
+  ```python
+     {
+         "image": "<base64-encoded string>"
+     }
+  ```
 
 Example call:  
   ```python
