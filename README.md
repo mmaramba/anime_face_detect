@@ -28,23 +28,13 @@ https://github.com/wulfebw/mergevec
 ### POST /detect
 Returns image with bounding box given a base64-encoded string representation of image.
 
-Request body:  
-  ```python
-     {
-         "content": "<base64-encoded string>"
-     }
-  ```
+**Request body:** `{ "content" : "<base64-encoded string>"}`
 
-Response body:  
-  ```python
-     {
-         "image": "<base64-encoded string>"
-     }
-  ```
+**Response body:** `{ "image" : "<base64-encoded string>"}`
 
-Example call:  
+**Example call:**  
   ```python
-     headers = {"content-type": "application/json"}
+     headers = {"content-type" : "application/json"}
      jpg_as_text = base64.b64encode(sample_jpg_img)
-     response = requests.post(http://localhost:5000/detect, json={"content": jpg_as_text.decode("utf-8")}, headers=headers)
+     response = requests.post(http://localhost:5000/detect, json={"content" : jpg_as_text.decode("utf-8")}, headers=headers)
   ```
