@@ -26,10 +26,16 @@ https://github.com/wulfebw/mergevec
 
 ## Flask API
 ### POST /detect
-Returns image with bounding box given a base64-encoded string representation of image (Content-Type: application/json).
+Returns image with bounding box given a base64-encoded string representation of image.
 
-Request body  
+Request body:  
 ````{"content": "base64-encoded string here"}````
 
-Response body  
-````{"content": "base64-encoded string here"}````
+Response body:  
+````{"image": "base64-encoded string here"}````
+
+Example call:  
+  ```python
+     jpg_as_text = base64.b64encode(sample_jpg_img)
+     response = requests.post(test_url, json={"content": jpg_as_text.decode("utf-8")}, headers=headers)
+  ```

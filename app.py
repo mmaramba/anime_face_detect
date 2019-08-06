@@ -34,7 +34,7 @@ def detect():
 
         _, buffer = cv2.imencode('.jpg', img)
         jpg_as_text = base64.b64encode(buffer)
-        return json.dumps({"content": jpg_as_text.decode("utf-8")})
+        return json.dumps({"image": jpg_as_text.decode("utf-8")})
 
     return json.dumps({"success": False})
 
