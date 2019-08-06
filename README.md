@@ -29,10 +29,7 @@ https://github.com/wulfebw/mergevec
 Content-Type: application/json
 
 Request body  
-````{
-    "content": "base64-encoded string here"
-}````
+````{"content": "base64-encoded string here"}````
+
 Response body  
-````{
-    "content": "base64-encoded string here"
-}````
+````{"content": "base64-encoded string here"}````
