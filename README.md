@@ -23,3 +23,16 @@ https://github.com/wulfebw/mergevec
 
 5. Use detect.py on an image. Example:  
 ![](img_show_1.png)
+
+## Flask API
+### POST /detect
+Content-Type: application/json
+
+Request body  
+````{
+    "content": "base64-encoded string here"
+}````
+Response body  
+````{
+    "content": "base64-encoded string here"
+}````
