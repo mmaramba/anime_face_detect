@@ -44,6 +44,7 @@ Response body:
 
 Example call:  
   ```python
+     headers = {"content-type": "application/json"}
      jpg_as_text = base64.b64encode(sample_jpg_img)
-     response = requests.post(test_url, json={"content": jpg_as_text.decode("utf-8")}, headers=headers)
+     response = requests.post(http://localhost:5000/detect, json={"content": jpg_as_text.decode("utf-8")}, headers=headers)
   ```
