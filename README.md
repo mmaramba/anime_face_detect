@@ -40,7 +40,7 @@ Returns bounding box information for each face detected in the image. Takes in a
   ```
 
 ### POST /auto_crop
-Returns bounding box information for each face detected in the image. Takes in a base-64 encoded string `"content"`.
+Returns cropped image of largest detected face. Takes in a base-64 encoded string `"content"`.
 
 **Request body:** `{ "content" : "<base64-encoded string>" }`
 
