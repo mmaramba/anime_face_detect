@@ -1,5 +1,7 @@
 # anime_face_detect
 
+The goal of this repository is to share my methods and infrastructure for training OpenCV Cascade models as well as to share my API that developers can use to create more training samples for use with GANs, facial recognition algorithms, etc.
+
 ## Datasets used:
 - Positives: Anime Face Dataset (Mckinsey666)  
 https://github.com/Mckinsey666/Anime-Face-Dataset
