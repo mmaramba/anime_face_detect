@@ -30,7 +30,7 @@ Returns bounding box information for each face detected in the image. Takes in a
 
 **Request body:** `{ "content" : "<base64-encoded string>" }`
 
-**Response body:** `{ 'detected': [{ 'x': 1006, 'y': 305, 'w': 125, 'h': 125 }, { 'x': 348, 'y': 101, 'w': 737, 'h': 737 }] }`
+**Example response body:** `{ 'detected': [{ 'x': 1006, 'y': 305, 'w': 125, 'h': 125 }, { 'x': 348, 'y': 101, 'w': 737, 'h': 737 }] }`
 
 **Example call:**  
   ```python
@@ -38,3 +38,18 @@ Returns bounding box information for each face detected in the image. Takes in a
      jpg_as_text = base64.b64encode(sample_jpg_img)
      response = requests.post(http://localhost:5000/detect, json={"content" : jpg_as_text.decode("utf-8")}, headers=headers)
   ```
+
+### POST /auto_crop
+Returns bounding box information for each face detected in the image. Takes in a base-64 encoded string `"content"`.
+
+**Request body:** `{ "content" : "<base64-encoded string>" }`
+
+**Response body:** `{ "image" : "<base64-encoded string>" }] }`
+
+**Example call:**  
+  ```python
+     headers = {"content-type" : "application/json" }
+     jpg_as_text = base64.b64encode(sample_jpg_img)
+     response = requests.post(http://localhost:5000/auto_crop, json={"content" : jpg_as_text.decode("utf-8")}, headers=headers)
+  ```
+

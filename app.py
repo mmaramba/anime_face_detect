@@ -29,19 +29,46 @@ def detect():
 
         detected = []
         for (x,y,w,h) in faces:
-            #cv2.rectangle(img,(x,y),(x+w,y+h),(255,0,0),2)
             detected.append({ "x" : int(x), "y" : int(y), "w" : int(w), "h" : int(h) })
-
-        #cv2.imwrite("res_img.png", img)
-
-        #_, buffer = cv2.imencode('.jpg', img)
-        #jpg_as_text = base64.b64encode(buffer)
-        #return json.dumps({"image": jpg_as_text.decode("utf-8")})
+        
         print(detected)
-
         return json.dumps({ "detected" : detected})
     else:
         abort(400, "Invalid request for /detect")
+
+
+@app.route("/auto_crop", methods=['POST'])
+def auto_crop():
+    global face_cascade
+
+    req_json = request.get_json()
+    if 'content' in req_json:
+        np_img = np.fromstring(base64.b64decode(req_json['content']), np.uint8)
+        img = cv2.imdecode(np_img, cv2.IMREAD_COLOR)
+        gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+        gray = cv2.equalizeHist(gray)
+
+        faces = face_cascade.detectMultiScale(gray, 
+                                            scaleFactor = 1.1, 
+                                            minNeighbors = 5, 
+                                            minSize = (24, 24))
+
+        print(faces)
+        faces = faces.tolist()
+        if len(faces):
+            max_face_ind = faces.index(max(faces, key=lambda x: x[2]*x[3]))
+            x,y,w,h = faces[max_face_ind]
+            cropped = img[y:y+h, x:x+w]
+        else:
+            cropped = img
+
+        cv2.imwrite("res_img.png", cropped)
+
+        _, buffer = cv2.imencode('.jpg', cropped)
+        jpg_as_text = base64.b64encode(buffer)
+        return json.dumps({"image": jpg_as_text.decode("utf-8")})
+    else:
+        abort(400, "Invalid request for /auto_crop")
 
 if __name__ == "__main__":
     app.run()
