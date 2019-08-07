@@ -26,11 +26,11 @@ https://github.com/wulfebw/mergevec
 
 ## Flask API
 ### POST /detect
-Returns image with bounding box given a base64-encoded string representation of image.
+Returns bounding box information for each face detected in the image. Takes in a base-64 encoded string `"content"`.
 
 **Request body:** `{ "content" : "<base64-encoded string>" }`
 
-**Response body:** `{ "image" : "<base64-encoded string>" }`
+**Response body:** `{ 'detected': [{ 'x': 1006, 'y': 305, 'w': 125, 'h': 125 }, { 'x': 348, 'y': 101, 'w': 737, 'h': 737 }] }`
 
 **Example call:**  
   ```python

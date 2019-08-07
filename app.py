@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, abort
 import numpy as np
 import cv2
 import json
@@ -27,16 +27,21 @@ def detect():
                                             minNeighbors = 5, 
                                             minSize = (24, 24))
 
+        detected = []
         for (x,y,w,h) in faces:
-            cv2.rectangle(img,(x,y),(x+w,y+h),(255,0,0),2)
+            #cv2.rectangle(img,(x,y),(x+w,y+h),(255,0,0),2)
+            detected.append({ "x" : int(x), "y" : int(y), "w" : int(w), "h" : int(h) })
 
-        cv2.imwrite("res_img.png", img)
+        #cv2.imwrite("res_img.png", img)
 
-        _, buffer = cv2.imencode('.jpg', img)
-        jpg_as_text = base64.b64encode(buffer)
-        return json.dumps({"image": jpg_as_text.decode("utf-8")})
+        #_, buffer = cv2.imencode('.jpg', img)
+        #jpg_as_text = base64.b64encode(buffer)
+        #return json.dumps({"image": jpg_as_text.decode("utf-8")})
+        print(detected)
 
-    return json.dumps({"success": False})
+        return json.dumps({ "detected" : detected})
+    else:
+        abort(400, "Invalid request for /detect")
 
 if __name__ == "__main__":
     app.run()
