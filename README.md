@@ -32,7 +32,8 @@ Returns bounding box information for each face detected in the image. Takes in a
 
 **Request body:** `{ "content" : "<base64-encoded string>" }`
 
-**Example response body:** `{ 'detected': [{ 'x': 1006, 'y': 305, 'w': 125, 'h': 125 }, { 'x': 348, 'y': 101, 'w': 737, 'h': 737 }] }`
+**Example response body:**  
+`{ 'detected': [{ 'x': 1006, 'y': 305, 'w': 125, 'h': 125 }, { 'x': 348, 'y': 101, 'w': 737, 'h': 737 }] }`
 
 **Example call:**  
   ```python
